@@ -9,11 +9,13 @@ const channel_id = process.env.channel;
 const guild_id = process.env.guild;     
 const token = process.env.token;         
 
-const ENABLE_CAMERA = true;  
-const ENABLE_STREAM = true;  
+// --- [ التحكم في الكاميرا والستريم ] ---
+const ENABLE_CAMERA = true;  // الكاميرا مفتوحة الآن
+const ENABLE_STREAM = false; // الستريم مغلق حالياً (غيره لـ true لاحقاً لتفعيله)
+// -------------------------------------
 
 app.get('/', (req, res) => {
-  res.send('<h1>Bot 24H Voice ON</h1>');
+  res.send('<h1>Bot 24H Voice & Camera ON</h1>');
 });
 
 app.listen(process.env.PORT || 2000);
@@ -36,7 +38,9 @@ client.on('ready', async () => {
       });
 
       if (ENABLE_STREAM) {
-         client.user.setActivity("Streaming 24/7", { type: "STREAMING", url: "https://www.twitch.tv/discord" });
+         client.user.setActivity("Live Streaming", { type: "STREAMING", url: "https://www.twitch.tv/discord" });
+      } else {
+         client.user.setPresence({ activities: [] }); // حذف حالة الستريم إذا كان مغلق
       }
 
     } catch (error) {

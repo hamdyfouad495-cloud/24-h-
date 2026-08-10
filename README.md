@@ -96,9 +96,7 @@ node_modules/
 ```text
 24-H-Voice/
 ├── .env
-├── .gitignore
 ├── package.json
-├── package-lock.json
 └── index.js
 ```
 
@@ -121,6 +119,6 @@ node index.js
 
 ### 🎙️ 24-H Voice
 
-**Made with ❤️**
+**Made with (𝟕𝐚𝐦.𝐨)❤️**
 
 </div>
